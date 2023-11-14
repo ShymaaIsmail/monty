@@ -1,0 +1,45 @@
+#include "monty.h"
+
+/**
+* read_file - read_file from args
+* @argv: argv passed by user
+* Return: exit code
+*/
+int read_file(char **argv)
+{
+	const char *filename = argv[1];
+	char *input;
+	char file_lines[(BUFFER_SIZE * 10) + 1];
+	int exit_code = EXIT_SUCCESS, input_data_size, fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd >= 0)
+	{
+		do {
+			input_data_size = read(fd, file_lines, BUFFER_SIZE * 10);
+		} while (input_data_size != 0);
+
+		if (input_data_size > 0)
+		{
+			input = malloc(input_data_size + 1);
+			if (input != NULL)
+			{
+				file_lines[input_data_size] = '\0';
+				strcpy(input, file_lines);
+				commands = extract_tokens(input);
+				if (commands != NULL)
+				{
+					execute_command(input, commands, exit_code);
+				}
+				free(input);
+			}
+		}
+		close(fd);
+	}
+	else
+	{
+		print_monty_error(FILE_NOT_OPEN, 1, filename);
+		exit_code = EXIT_FAILURE;
+	}
+	return (exit_code);
+}
