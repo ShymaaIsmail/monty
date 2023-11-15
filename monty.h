@@ -1,6 +1,7 @@
 #ifndef _monty_
 #define _monty_
 #define _GNU_SOURCE
+#define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,12 +13,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 #define BUFFER_SIZE 1024
-
 /**
  * enum ERROR_CODE - enum that contains the error code that appears for user
  * @USAGE: wrong USAGE
  * @FILE_NOT_OPEN: FILE_NOT_OPEN
  * @MALLOC_FAIL: MALLOC_FAIL
+ * @INVALID_INT: INVALID_INT
+ * @INVALID_OPCODE: INVALID_OPCODE
  * @MAX_CODE: MAX_CODE
  *
  * Description: error codes that will be appear to the user in the monty
@@ -27,6 +29,8 @@ typedef enum ERROR_CODE
 	USAGE = 0,
 	FILE_NOT_OPEN = 1,
 	MALLOC_FAIL = 2,
+	INVALID_INT = 3,
+	INVALID_OPCODE = 4,
 	MAX_CODE
 } ERROR_CODE;
 
@@ -60,6 +64,8 @@ typedef struct stack_s
 		struct stack_s *next;
 } stack_t;
 
+extern stack_t shared_value;
+
 /**
 * struct instruction_s - opcode and its function
 * @opcode: the opcode
@@ -76,6 +82,17 @@ typedef struct instruction_s
 
 } instruction_t;
 /**stack operations*/
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 /**helpers*/
 char *int_to_string(int number);
 int string_to_integer(char *s);
