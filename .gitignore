@@ -1,3 +1,8 @@
+#tests bytecodes
+bytecodes
+bytecodes/*
+tests
+tests/*
 # Prerequisites
 *.d
 

@@ -1,6 +1,4 @@
 #include "monty.h"
-
-
 /**
  * remove_leading_traling_space - removes the trailing white spaces in input
  * @str: input command of the user
@@ -13,7 +11,7 @@ void remove_leading_traling_space(char *str)
 
 	if (str != NULL)
 	{
-		length = str_len(str);
+		length = strlen(str);
 		i = 0;
 		while (str[i] == ' ')
 		{
@@ -26,7 +24,7 @@ void remove_leading_traling_space(char *str)
 				str[j] = str[j + i];
 			}
 		}
-		length = str_len(str);
+		length = strlen(str);
 		i = length - 1;
 		if (i >= 0)
 		{
@@ -48,12 +46,12 @@ size_t get_rows_count(char *input)
 {
 	size_t rows_count = 0;
 	char *rows_token;
-	char *temp_input = strdup(input);
+	char *temp_input = str_dup(input);
 
 	if (temp_input != NULL)
 	{
 	remove_leading_traling_space(temp_input);
-	if (temp_input != NULL && str_len(temp_input) > 0)
+	if (temp_input != NULL && strlen(temp_input) > 0)
 	{
 	rows_token = strtok(temp_input, "\n");
 	while (rows_token != NULL)
@@ -78,7 +76,7 @@ size_t get_columns_count_by_row_index(char *input, size_t row_index)
 	size_t column_count = 0;
 	char *token;
 	size_t current_row = 0;
-	char *copy_input = strdup(input);
+	char *copy_input = str_dup(input);
 
 	if (copy_input != NULL)
 	{
@@ -116,7 +114,7 @@ char *get_substring_by_indexes(char *input, size_t row_index,
 	char *substring = NULL;
 	char *row_token, *row_copy;
 	char *column_token;
-	char *copy_input = strdup(input);
+	char *copy_input = str_dup(input);
 
 	row_token = strtok(copy_input, "\n");
 	while (row_token != NULL && current_row < row_index)
@@ -126,7 +124,7 @@ char *get_substring_by_indexes(char *input, size_t row_index,
 	}
 	if (row_token != NULL)
 	{
-		row_copy = strdup(row_token);
+		row_copy = str_dup(row_token);
 		column_token = strtok(row_copy, " ");
 		current_column = 0;
 		while (column_token != NULL && current_column < column_index)
@@ -136,7 +134,7 @@ char *get_substring_by_indexes(char *input, size_t row_index,
 		}
 		if (column_token != NULL)
 		{
-			substring = strdup(column_token);
+			substring = str_dup(column_token);
 		}
 		free(row_copy);
 	}
@@ -153,7 +151,7 @@ char *get_substring_by_indexes(char *input, size_t row_index,
 */
 char ***get_lines(char *file_conent_ptr)
 {
-	char  ***argv = NULL, *file_conent_ptr_copy = strdup(file_conent_ptr);
+	char  ***argv = NULL, *file_conent_ptr_copy = str_dup(file_conent_ptr);
 	size_t rows_count = 0, columns_count = 0, row_index, column_index = 0;
 
 	if (file_conent_ptr_copy != NULL)
@@ -180,7 +178,7 @@ char ***get_lines(char *file_conent_ptr)
 				}
 				else
 				{
-					free_argv(argv, row_index);
+					free_lines(argv, row_index);
 					break;
 				}
 			}

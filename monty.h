@@ -13,8 +13,9 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
-#define BUFFER_SIZE 1024
 #include "error_message.h"
+#define BUFFER_SIZE 1024
+
 /**
 * struct stack_s - doubly linked list representation of a stack (or queue)
 * @n: integer
@@ -61,7 +62,11 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 /**helpers*/
 char *int_to_string(int number);
+int string_to_integer(char *s);
+char *str_dup(const char *s);
 int read_file(char **argv);
 char ***get_lines(char *file_conent_ptr);
 int interpret_lines(char ***lines);
+void free_lines(char ***lines, int row_index);
+void free_all_lines(char ***lines);
 #endif

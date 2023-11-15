@@ -7,7 +7,7 @@
 */
 int read_file(char **argv)
 {
-	const char *filename = argv[1];
+	char *filename = argv[1];
 	char *input, ***lines;
 	char file_lines[(BUFFER_SIZE * 10) + 1];
 	int exit_code = EXIT_SUCCESS, input_data_size, fd;
@@ -15,10 +15,7 @@ int read_file(char **argv)
 	fd = open(filename, O_RDONLY);
 	if (fd >= 0)
 	{
-		do {
-			input_data_size = read(fd, file_lines, BUFFER_SIZE * 10);
-		} while (input_data_size != 0);
-
+		input_data_size = read(fd, file_lines, BUFFER_SIZE * 10);
 		if (input_data_size > 0)
 		{
 			input = malloc(input_data_size + 1);
