@@ -8,7 +8,7 @@
 int read_file(char **argv)
 {
 	const char *filename = argv[1];
-	char *input;
+	char *input, ***lines;
 	char file_lines[(BUFFER_SIZE * 10) + 1];
 	int exit_code = EXIT_SUCCESS, input_data_size, fd;
 
@@ -26,12 +26,17 @@ int read_file(char **argv)
 			{
 				file_lines[input_data_size] = '\0';
 				strcpy(input, file_lines);
-				commands = extract_tokens(input);
-				if (commands != NULL)
+				lines = get_lines(input);
+				if (lines != NULL)
 				{
-					execute_command(input, commands, exit_code);
+					exit_code = interpret_lines(lines);
 				}
 				free(input);
+			}
+			else
+			{
+				print_monty_error(MALLOC_FAIL, 0);
+				exit_code = EXIT_FAILURE;
 			}
 		}
 		close(fd);

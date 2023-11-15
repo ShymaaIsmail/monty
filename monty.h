@@ -62,4 +62,6 @@ void mod(stack_t **stack, unsigned int line_number);
 /**helpers*/
 char *int_to_string(int number);
 int read_file(char **argv);
+char ***get_lines(char *file_conent_ptr);
+int interpret_lines(char ***lines);
 #endif

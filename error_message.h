@@ -10,6 +10,7 @@
  * enum ERROR_CODE - enum that contains the error code that appears for user
  * @USAGE: wrong USAGE
  * @FILE_NOT_OPEN: FILE_NOT_OPEN
+ * @MALLOC_FAIL: MALLOC_FAIL
  * @MAX_CODE: MAX_CODE
  *
  * Description: error codes that will be appear to the user in the monty
@@ -18,6 +19,7 @@ typedef enum ERROR_CODE
 {
 	USAGE = 0,
 	FILE_NOT_OPEN = 1,
+	MALLOC_FAIL = 2,
 	MAX_CODE
 } ERROR_CODE;
 

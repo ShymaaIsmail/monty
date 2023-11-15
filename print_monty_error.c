@@ -3,6 +3,7 @@
 const MONTY_ERORR monty_errors[] = {
 	{USAGE, "USAGE: monty file\n"},
 	{FILE_NOT_OPEN, "Error: Can't open file %s\n"},
+	{MALLOC_FAIL, "Error: malloc failed\n"}
 
 };
 
