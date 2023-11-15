@@ -13,8 +13,37 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "error_message.h"
 #define BUFFER_SIZE 1024
+
+/**
+ * enum ERROR_CODE - enum that contains the error code that appears for user
+ * @USAGE: wrong USAGE
+ * @FILE_NOT_OPEN: FILE_NOT_OPEN
+ * @MALLOC_FAIL: MALLOC_FAIL
+ * @MAX_CODE: MAX_CODE
+ *
+ * Description: error codes that will be appear to the user in the monty
+*/
+typedef enum ERROR_CODE
+{
+	USAGE = 0,
+	FILE_NOT_OPEN = 1,
+	MALLOC_FAIL = 2,
+	MAX_CODE
+} ERROR_CODE;
+
+/**
+* struct MONTY_ERORR - struct that contains all MONTY ERORR TYPES
+* @code: index of the error code starts from 0
+* @message: the content of error message
+* Description: MONTY ERORR TYPES
+*/
+typedef struct MONTY_ERORR
+{
+	enum ERROR_CODE code;
+	char *message;
+
+} MONTY_ERORR;
 
 /**
 * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -58,4 +87,5 @@ char ***get_lines(char *file_conent_ptr);
 int interpret_lines(char ***lines);
 void free_lines(char ***lines, int row_index);
 void free_all_lines(char ***lines);
+void print_monty_error(enum ERROR_CODE error_code, int ptr_num, ...);
 #endif
