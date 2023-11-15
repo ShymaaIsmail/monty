@@ -99,7 +99,11 @@ char *str_dup(const char *s);
 int read_file(char **argv);
 char ***get_lines(char *file_conent_ptr);
 int interpret_lines(char ***lines);
+int handle_push_param(char **line, unsigned int line_number);
+int process_line(stack_t **stack, char **line, unsigned int line_number);
+int interpret_lines(char ***lines);
 void free_lines(char ***lines, int row_index);
 void free_all_lines(char ***lines);
 void print_monty_error(enum ERROR_CODE error_code, int ptr_num, ...);
+
 #endif

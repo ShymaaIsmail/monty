@@ -1,8 +1,5 @@
 #include "monty.h"
-
 stack_t shared_value = {0, NULL, NULL};
-
-
 
 /**
  * handle_push_param - handle_push_param
@@ -72,28 +69,4 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 	}
 	return (exit_code);
 }
-/**
-* interpret_lines - interpret_lines
-* @lines: lines
-* Return: int
-*/
-int interpret_lines(char ***lines)
-{
-	int exit_code = 0;
-	unsigned int line_index;
-	stack_t **stack = NULL;
 
-	if (lines != NULL)
-	{
-		for (line_index = 0; lines[line_index] != NULL; line_index++)
-		{
-			exit_code = process_line(stack, lines[line_index], line_index + 1);
-			if (exit_code != EXIT_SUCCESS)
-			{
-				break;
-			}
-		}
-		free_all_lines(lines);
-	}
-	return (exit_code);
-}
