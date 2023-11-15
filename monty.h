@@ -1,6 +1,5 @@
 #ifndef _monty_
 #define _monty_
-#define _GNU_SOURCE
 #define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
@@ -95,7 +94,7 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 /**helpers*/
 char *int_to_string(int number);
-int string_to_integer(char *s);
+int *string_to_integer(char *s);
 char *str_dup(const char *s);
 int read_file(char **argv);
 char ***get_lines(char *file_conent_ptr);
