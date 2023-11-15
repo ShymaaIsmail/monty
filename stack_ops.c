@@ -7,7 +7,7 @@
 */
 void push(stack_t **stack, unsigned int line_number)
 {
-	printf("push me %d\n", shared_value.n);
+	printf("%d\n", shared_value.n);
 	if (stack != NULL)
 	{
 		printf("s %d\n", line_number);
