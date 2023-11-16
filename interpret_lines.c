@@ -15,7 +15,7 @@ int handle_push_param(char **line, unsigned int line_number)
 	if (line != NULL && line[1] != NULL)
 	{
 		value = string_to_integer(line[1]);
-		if (value == NULL)
+		if (value == NULL || *line[1] == '\0' || isspace(*line[1]))
 		{
 			print_monty_error(INVALID_INT, 1, line_number);
 			exit_code = EXIT_FAILURE;
@@ -26,6 +26,11 @@ int handle_push_param(char **line, unsigned int line_number)
 			shared_value.n = *value;
 			free(value);
 		}
+	}
+	else
+	{
+		print_monty_error(INVALID_INT, 1, line_number);
+		exit_code = EXIT_FAILURE;
 	}
 	return (exit_code);
 }
