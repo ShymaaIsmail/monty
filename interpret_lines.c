@@ -19,10 +19,12 @@ int handle_push_param(char **line, unsigned int line_number)
 		{
 			print_monty_error(INVALID_INT, 1, line_number);
 			exit_code = EXIT_FAILURE;
+			free(value);
 		}
 		else
 		{
 			shared_value.n = *value;
+			free(value);
 		}
 	}
 	return (exit_code);
