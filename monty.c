@@ -36,9 +36,13 @@ int interpret_lines(char ***lines)
 
 	if (lines != NULL)
 	{
-		for (line_index = 0; lines[line_index] != NULL; line_index++)
+		for (line_index = 0; line_index < (unsigned int)shared_value.rows_count;
+							line_index++)
 		{
-			exit_code = process_line(stack, lines[line_index], line_index + 1);
+			if (*lines[line_index] != NULL)
+			{
+				exit_code = process_line(stack, lines[line_index], line_index + 1);
+			}
 			if (exit_code != EXIT_SUCCESS)
 			{
 				break;

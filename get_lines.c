@@ -62,6 +62,7 @@ size_t get_rows_count(char *input)
 	}
 	free(temp_input);
 	}
+	shared_value.rows_count = rows_count;
 	return (rows_count);
 }
 

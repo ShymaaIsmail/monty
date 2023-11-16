@@ -12,6 +12,11 @@ char *int_to_string(int number)
 	int index = 0;
 	static char str[20];
 
+	if (number == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
 	if (number < 0)
 	{
 		isNegative = 1;

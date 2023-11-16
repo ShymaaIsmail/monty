@@ -51,6 +51,7 @@ typedef struct MONTY_ERORR
 * @n: integer
 * @prev: points to the previous element of the stack (or queue)
 * @next: points to the next element of the stack (or queue)
+* @rows_count: rows_count
 *
 * Description: doubly linked list node structure
 * for stack, queues, LIFO, FIFO
@@ -58,12 +59,26 @@ typedef struct MONTY_ERORR
 typedef struct stack_s
 {
 		int n;
-
+		int rows_count;
 		struct stack_s *prev;
 		struct stack_s *next;
 } stack_t;
 
-extern stack_t shared_value;
+
+/**
+* struct shared - shared data
+* @n: integer
+* @rows_count: rows_count
+*
+* Description: shared
+*/
+typedef struct shared
+{
+		int n;
+		int rows_count;
+} shared_t;
+
+extern shared_t shared_value;
 
 /**
 * struct instruction_s - opcode and its function

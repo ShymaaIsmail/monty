@@ -1,5 +1,5 @@
 #include "monty.h"
-stack_t shared_value = {0, NULL, NULL};
+shared_t shared_value = {0, 0};
 
 /**
  * handle_push_param - handle_push_param
@@ -43,29 +43,32 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 	{"pall", pall}, {"pint", pint}, {"pop", pop}
 	};
 
-	opcode = line[0];
-	if (strcmp(opcode, "push") == 0)
+	if (line != NULL)
 	{
-		exit_code = handle_push_param(line, line_number);
-		if (exit_code != EXIT_SUCCESS)
+		opcode = line[0];
+		if (strcmp(opcode, "push") == 0)
 		{
-			return (exit_code);
+			exit_code = handle_push_param(line, line_number);
+			if (exit_code != EXIT_SUCCESS)
+			{
+				return (exit_code);
+			}
 		}
-	}
-	while (opcode_index < 4)
-	{
-		if (strcmp(opcode, instructions[opcode_index].opcode) == 0)
+		while (opcode_index < 4)
 		{
-			instructions[opcode_index].f(stack, line_number);
-			is_handeled_opcode = 1;
-			break;
+			if (strcmp(opcode, instructions[opcode_index].opcode) == 0)
+			{
+				instructions[opcode_index].f(stack, line_number);
+				is_handeled_opcode = 1;
+				break;
+			}
+			opcode_index++;
 		}
-		opcode_index++;
-	}
-	if (!is_handeled_opcode)
-	{
-		print_monty_error(INVALID_OPCODE, 2, line_number, opcode);
-		exit_code = EXIT_FAILURE;
+		if (!is_handeled_opcode)
+		{
+			print_monty_error(INVALID_OPCODE, 2, line_number, opcode);
+			exit_code = EXIT_FAILURE;
+		}
 	}
 	return (exit_code);
 }
