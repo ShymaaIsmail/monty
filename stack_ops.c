@@ -38,8 +38,9 @@ void pall(stack_t **stack, unsigned int line_number)
 		do {
 			if (top != NULL)
 			{
-				write(STDOUT_FILENO, int_to_string(top->n), 4);
-				write(STDOUT_FILENO, "\n", 2);
+				write(STDOUT_FILENO, int_to_string(top->n),
+						strlen(int_to_string(top->n)));
+				write(STDOUT_FILENO, "\n", 1);
 				top = top->prev;
 			}
 		} while (top != NULL);
