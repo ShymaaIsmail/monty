@@ -14,12 +14,10 @@ int *ret = malloc(sizeof(int));
 
 if (s[0] == '-')
 {
-	*ret = -1;
-	return (NULL);
+	i = 1;
 }
-else
-{
-	for (i = 0; s[i] != '\0'; i++)
+
+	for (; s[i] != '\0'; i++)
 
 	{
 		if ((s[i] >= '0') && (s[i] <= '9'))
@@ -34,6 +32,9 @@ else
 		}
 	}
 	*ret = val;
-}
+	if (s[0] == '-')
+	{
+		*ret = val * -1;
+	}
 return (ret);
 }
