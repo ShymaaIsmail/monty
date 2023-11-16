@@ -49,6 +49,7 @@ int interpret_lines(char ***lines)
 			}
 		}
 		free_all_lines(lines);
+		free_stack(stack);
 	}
 	return (exit_code);
 }

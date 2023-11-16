@@ -49,3 +49,21 @@ void free_lines(char ***lines, int row_index)
 	free(lines);
 	lines = NULL;
 }
+
+/**
+ * free_stack - free_stack
+ * @stack: stack
+*/
+void free_stack(stack_t **stack)
+{
+	stack_t *node = *stack;
+	stack_t *tmp = NULL;
+
+	while (node != NULL)
+	{
+		tmp = node;
+		node = node->next;
+		free(tmp);
+	}
+	*stack = NULL;
+}

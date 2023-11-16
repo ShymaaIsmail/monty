@@ -124,4 +124,5 @@ void print_monty_error(enum ERROR_CODE error_code, int ptr_num, ...);
 stack_t **initialize_empty_stack();
 stack_t *create_node(int n);
 stack_t *get_top_node(stack_t **stack);
+void free_stack(stack_t **stack);
 #endif
