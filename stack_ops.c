@@ -38,7 +38,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		do {
 			if (top != NULL)
 			{
-				char str[10];
+				char str[20];
 
 				sprintf(str, "%d\n", top->n);
 				write(STDOUT_FILENO, str, strlen(str));
