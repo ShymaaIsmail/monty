@@ -32,7 +32,7 @@ int interpret_lines(char ***lines)
 {
 	int exit_code = 0;
 	unsigned int line_index;
-	stack_t **stack = NULL;
+	stack_t **stack = initialize_empty_stack();
 
 	if (lines != NULL)
 	{

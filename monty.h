@@ -105,5 +105,8 @@ int interpret_lines(char ***lines);
 void free_lines(char ***lines, int row_index);
 void free_all_lines(char ***lines);
 void print_monty_error(enum ERROR_CODE error_code, int ptr_num, ...);
-
+/**stack helper*/
+stack_t **initialize_empty_stack();
+stack_t *create_node(int n);
+stack_t *get_top_node(stack_t **stack);
 #endif

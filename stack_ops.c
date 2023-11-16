@@ -7,10 +7,19 @@
 */
 void push(stack_t **stack, unsigned int line_number)
 {
-	printf("%d\n", shared_value.n);
-	if (stack != NULL)
+	stack_t *new_node = create_node(shared_value.n);
+	stack_t *top = get_top_node(stack);
+
+	(void) line_number;
+	if (*stack == NULL)
 	{
-		printf("s %d\n", line_number);
+		*stack = new_node;
+	}
+	else
+	{
+		top->next = new_node;
+		new_node->prev = top;
+		top = new_node;
 	}
 }
 /**
@@ -20,9 +29,19 @@ void push(stack_t **stack, unsigned int line_number)
 */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	if (stack != NULL)
+	(void) line_number;
+	if (*stack != NULL)
 	{
-		printf("%d", line_number);
+		stack_t *top = get_top_node(stack);
+
+		do {
+			if (top != NULL)
+			{
+				write(STDOUT_FILENO, int_to_string(top->n), top->n);
+				write(STDOUT_FILENO, "\n", 2);
+				top = top->prev;
+			}
+		} while (top != NULL);
 	}
 }
 /**
