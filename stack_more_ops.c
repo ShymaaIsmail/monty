@@ -6,9 +6,27 @@
 */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	if (stack != NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		printf("%d", line_number);
+		free_stack(stack);
+		print_monty_error(INVALID_SWAP, 1, (int)line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		stack_t *temp_first = *stack;
+		stack_t *temp_second = (*stack)->next;
+
+		temp_first->next = temp_second->next;
+		temp_first->prev = temp_second;
+		temp_second->next = temp_first;
+		temp_second->prev = NULL;
+
+		if (temp_first->next != NULL)
+		{
+			temp_first->next->prev = temp_first;
+		}
+		*stack = temp_second;
 	}
 }
 /**

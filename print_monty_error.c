@@ -7,7 +7,8 @@ const MONTY_ERORR monty_errors[] = {
 	{INVALID_INT, "L%d: usage: push integer\n"},
 	{INVALID_OPCODE, "L%d: unknown instruction %s\n"},
 	{EMPTY_STACK, "L%d: can't pint, stack empty\n"},
-	{POP_EMPTY_STACK, "L%d: can't pop an empty stack\n"}
+	{POP_EMPTY_STACK, "L%d: can't pop an empty stack\n"},
+	{INVALID_SWAP, "L%d: can't swap, stack too short\n"}
 };
 
 
