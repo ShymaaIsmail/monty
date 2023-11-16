@@ -24,6 +24,7 @@
  * @POP_EMPTY_STACK: POP_EMPTY_STACK
  * @EMPTY_STACK: EMPTY_STACK
  * @INVALID_SWAP: INVALID_SWAP
+ * @FEW_NODES: FEW_NODES
  * @MAX_CODE: MAX_CODE
  *
  * Description: error codes that will be appear to the user in the monty
@@ -38,6 +39,7 @@ typedef enum ERROR_CODE
 	EMPTY_STACK = 5,
 	POP_EMPTY_STACK = 6,
 	INVALID_SWAP = 7,
+	FEW_NODES = 8,
 	MAX_CODE
 } ERROR_CODE;
 

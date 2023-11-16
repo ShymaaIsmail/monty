@@ -49,7 +49,8 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 	char *opcode;
 	instruction_t instructions[] = { {"push", push},
 	{"pall", pall}, {"pint", pint}, {"pop", pop},
-	{"nop", nop}, {"swap", swap}, {NULL, NULL}
+	{"nop", nop}, {"swap", swap}, {"add", add},
+	{NULL, NULL}
 	};
 
 	if (line != NULL)

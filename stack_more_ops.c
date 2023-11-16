@@ -36,9 +36,20 @@ void swap(stack_t **stack, unsigned int line_number)
 */
 void add(stack_t **stack, unsigned int line_number)
 {
-	if (stack != NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		printf("%d", line_number);
+		free_stack(stack);
+		print_monty_error(FEW_NODES, 1, (int)line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		stack_t *temp_first = *stack;
+		stack_t *temp_second = (*stack)->next;
+		int result = temp_first->n + temp_second->n;
+
+		pop(stack, line_number);
+		(*stack)->n = result;
 	}
 }
 /**
