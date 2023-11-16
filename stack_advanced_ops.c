@@ -137,18 +137,17 @@ void pstr(stack_t **stack, unsigned int line_number)
 	else
 	{
 		stack_t *head = *stack;
+		char str[20];
 
 		do {
 			if (head != NULL)
 			{
-				char str[20];
-
 				sprintf(str, "%c", head->n);
 				write(STDOUT_FILENO, str, strlen(str));
 				head = head->next;
 			}
 		} while (head != NULL &&
-					head->n >= 0 && head->n <= 127);
+					head->n > 0 && head->n <= 127);
 		putchar('\n');
 	}
 }
