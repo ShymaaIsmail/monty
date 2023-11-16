@@ -30,6 +30,8 @@
  * @FEW_DIV_NODES: FEW_DIV_NODES
  * @FEW_MOD_NODES: FEW_MOD_NODES
  * @DIV_BY_ZERO: DIV BY ZERO
+ * @INVALID_PTCHR: INVALID_PTCHR
+ * @INVALID_ASCII: invalid asci
  * @MAX_CODE: MAX_CODE
  *
  * Description: error codes that will be appear to the user in the monty
@@ -50,6 +52,8 @@ typedef enum ERROR_CODE
 	FEW_DIV_NODES = 11,
 	FEW_MOD_NODES = 12,
 	DIV_BY_ZERO = 13,
+	INVALID_PTCHR = 14,
+	INVALID_ASCII = 15,
 	MAX_CODE
 } ERROR_CODE;
 
@@ -63,7 +67,6 @@ typedef struct MONTY_ERORR
 {
 	enum ERROR_CODE code;
 	char *message;
-
 } MONTY_ERORR;
 
 /**
@@ -127,6 +130,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 /**helpers*/
 char *int_to_string(int number);
 int *string_to_integer(char *s);

@@ -90,3 +90,32 @@ void mod(stack_t **stack, unsigned int line_number)
 		}
 	}
 }
+
+/**
+ * pchar - pchar
+ * @stack: stack
+ * @line_number: line_number
+*/
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		print_monty_error(INVALID_PTCHR, 1, (int)line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		int head_value = (*stack)->n;
+
+		if (head_value >= 0 && head_value <= 127)
+		{
+			putchar(head_value);
+			putchar('\n');
+		}
+		else
+		{
+			print_monty_error(INVALID_ASCII, 1, (int)line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+}
