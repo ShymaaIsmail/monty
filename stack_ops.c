@@ -75,8 +75,19 @@ void pint(stack_t **stack, unsigned int line_number)
 */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	if (stack != NULL)
+	if (*stack == NULL)
 	{
-		printf("%d", line_number);
+		print_monty_error(POP_EMPTY_STACK, 1, (int)line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		stack_t *top = get_top_node(*stack);
+		*stack = top->next;
+		if (*stack != NULL)
+		{
+			(*stack)->prev = NULL;
+		}
+		free(top);
 	}
 }

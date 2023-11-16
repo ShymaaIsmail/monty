@@ -6,7 +6,8 @@ const MONTY_ERORR monty_errors[] = {
 	{MALLOC_FAIL, "Error: malloc failed\n"},
 	{INVALID_INT, "L%d: usage: push integer\n"},
 	{INVALID_OPCODE, "L%d: unknown instruction %s\n"},
-	{EMPTY_STACK, "L%d: can't pint, stack empty\n"}
+	{EMPTY_STACK, "L%d: can't pint, stack empty\n"},
+	{POP_EMPTY_STACK, "L%d: can't pop an empty stack\n"}
 };
 
 

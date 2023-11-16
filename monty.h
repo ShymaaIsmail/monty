@@ -21,6 +21,8 @@
  * @MALLOC_FAIL: MALLOC_FAIL
  * @INVALID_INT: INVALID_INT
  * @INVALID_OPCODE: INVALID_OPCODE
+ * @POP_EMPTY_STACK: POP_EMPTY_STACK
+ * @EMPTY_STACK: EMPTY_STACK
  * @MAX_CODE: MAX_CODE
  *
  * Description: error codes that will be appear to the user in the monty
@@ -33,6 +35,7 @@ typedef enum ERROR_CODE
 	INVALID_INT = 3,
 	INVALID_OPCODE = 4,
 	EMPTY_STACK = 5,
+	POP_EMPTY_STACK = 6,
 	MAX_CODE
 } ERROR_CODE;
 
