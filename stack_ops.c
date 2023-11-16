@@ -8,7 +8,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = create_node(shared_value.n);
-	stack_t *top = get_top_node(stack);
+	stack_t *top = get_top_node(*stack);
 
 	(void) line_number;
 	if (*stack == NULL)
@@ -33,7 +33,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	if (*stack != NULL)
 	{
-		stack_t *top = get_top_node(stack);
+		stack_t *top = get_top_node(*stack);
 
 		do {
 			if (top != NULL)

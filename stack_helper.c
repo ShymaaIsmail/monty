@@ -48,14 +48,14 @@ stack_t *create_node(int n)
 * @stack: stack
 * Return: pointer to top node
 */
-stack_t *get_top_node(stack_t **stack)
+stack_t *get_top_node(stack_t *stack)
 {
 	stack_t *top = NULL;
 	stack_t *current = NULL;
 
-	if (stack != NULL && *stack != NULL)
+	if (stack != NULL)
 	{
-		current = *stack;
+		current = stack;
 		while (current->next != NULL)
 		{
 			current = current->next;
