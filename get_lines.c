@@ -89,11 +89,11 @@ size_t get_columns_count_by_row_index(char *input, size_t row_index)
 	}
 	if (token != NULL)
 	{
-		token = strtok(token, " ");
+		token = strtok(token, " \t");
 		while (token != NULL)
 		{
 			column_count++;
-			token = strtok(NULL, " ");
+			token = strtok(NULL, " \t");
 		}
 	}
 	free(copy_input);
@@ -126,11 +126,11 @@ char *get_substring_by_indexes(char *input, size_t row_index,
 	if (row_token != NULL)
 	{
 		row_copy = str_dup(row_token);
-		column_token = strtok(row_copy, " ");
+		column_token = strtok(row_copy, " \t");
 		current_column = 0;
 		while (column_token != NULL && current_column < column_index)
 		{
-			column_token = strtok(NULL, " ");
+			column_token = strtok(NULL, " \t");
 			current_column++;
 		}
 		if (column_token != NULL)
