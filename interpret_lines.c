@@ -47,7 +47,8 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 	int opcode_index = 0, is_handeled_opcode = 0;
 	char *opcode;
 	instruction_t instructions[] = { {"push", push},
-	{"pall", pall}, {"pint", pint}, {"pop", pop}
+	{"pall", pall}, {"pint", pint}, {"pop", pop},
+	 {NULL, NULL}
 	};
 
 	if (line != NULL)
@@ -61,7 +62,7 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 				return (exit_code);
 			}
 		}
-		while (opcode_index < 4)
+		while (instructions[opcode_index].opcode != NULL)
 		{
 			if (strcmp(opcode, instructions[opcode_index].opcode) == 0)
 			{
