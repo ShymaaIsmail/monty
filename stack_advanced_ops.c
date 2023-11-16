@@ -109,8 +109,10 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 		if (head_value >= 0 && head_value <= 127)
 		{
-			putchar(head_value);
-			putchar('\n');
+			char str[20];
+
+			sprintf(str, "%d\n", head_value);
+			write(STDOUT_FILENO, str, strlen(str));
 		}
 		else
 		{
