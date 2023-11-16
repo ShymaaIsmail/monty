@@ -51,7 +51,8 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 	{"pall", pall}, {"pint", pint}, {"pop", pop},
 	{"nop", nop}, {"swap", swap}, {"add", add},
 	{"sub", sub}, {"mul", mul}, {"div", _div},
-	{"mod", mod}, {"pchar", pchar}, {NULL, NULL}
+	{"mod", mod}, {"pchar", pchar}, {"pstr", pstr},
+	{NULL, NULL}
 	};
 
 	if (line != NULL)
