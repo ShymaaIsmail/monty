@@ -16,7 +16,7 @@ const MONTY_ERORR monty_errors[] = {
 	{FEW_MOD_NODES, "L%d: can't mod, stack too short\n"},
 	{DIV_BY_ZERO, "L%d: division by zero\n"},
 	{INVALID_PTCHR, "L%d: can't pchar, stack empty\n"},
-	{INVALID_ASCII, " L%d: can't pchar, value out of range\n"}
+	{INVALID_ASCII, "L%d: can't pchar, value out of range\n"}
 };
 
 
