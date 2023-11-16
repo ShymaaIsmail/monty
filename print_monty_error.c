@@ -9,7 +9,11 @@ const MONTY_ERORR monty_errors[] = {
 	{EMPTY_STACK, "L%d: can't pint, stack empty\n"},
 	{POP_EMPTY_STACK, "L%d: can't pop an empty stack\n"},
 	{INVALID_SWAP, "L%d: can't swap, stack too short\n"},
-	{FEW_NODES, "L%d: can't add, stack too short\n"}
+	{FEW_ADD_NODES, "L%d: can't add, stack too short\n"},
+	{FEW_SUB_NODES, "L%d: can't sub, stack too short\n"},
+	{FEW_MUL_NODES, "L%d: can't mul, stack too short\n"},
+	{FEW_DIV_NODES, "L%d: can't div, stack too short\n"},
+	{FEW_MOD_NODES, "L%d: can't mod, stack too short\n"}
 };
 
 
