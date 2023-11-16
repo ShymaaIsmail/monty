@@ -50,7 +50,8 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 	instruction_t instructions[] = { {"push", push},
 	{"pall", pall}, {"pint", pint}, {"pop", pop},
 	{"nop", nop}, {"swap", swap}, {"add", add},
-	{NULL, NULL}
+	{"sub", sub}, {"mul", mul}, {"div", _div},
+	{"mod", mod}, {NULL, NULL}
 	};
 
 	if (line != NULL)
