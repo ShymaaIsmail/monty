@@ -13,7 +13,8 @@ const MONTY_ERORR monty_errors[] = {
 	{FEW_SUB_NODES, "L%d: can't sub, stack too short\n"},
 	{FEW_MUL_NODES, "L%d: can't mul, stack too short\n"},
 	{FEW_DIV_NODES, "L%d: can't div, stack too short\n"},
-	{FEW_MOD_NODES, "L%d: can't mod, stack too short\n"}
+	{FEW_MOD_NODES, "L%d: can't mod, stack too short\n"},
+	{DIV_BY_ZERO, "L%d: division by zero\n"}
 };
 
 

@@ -29,6 +29,7 @@
  * @FEW_MUL_NODES: FEW_MUL_NODES
  * @FEW_DIV_NODES: FEW_DIV_NODES
  * @FEW_MOD_NODES: FEW_MOD_NODES
+ * @DIV_BY_ZERO: DIV BY ZERO
  * @MAX_CODE: MAX_CODE
  *
  * Description: error codes that will be appear to the user in the monty
@@ -48,6 +49,7 @@ typedef enum ERROR_CODE
 	FEW_MUL_NODES = 10,
 	FEW_DIV_NODES = 11,
 	FEW_MOD_NODES = 12,
+	DIV_BY_ZERO = 13,
 	MAX_CODE
 } ERROR_CODE;
 

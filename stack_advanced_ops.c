@@ -8,9 +8,30 @@
 */
 void _div(stack_t **stack, unsigned int line_number)
 {
-	if (stack != NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		printf("%d", line_number);
+		free_stack(stack);
+		print_monty_error(FEW_DIV_NODES, 1, (int)line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		stack_t *temp_first = *stack;
+		stack_t *temp_second = (*stack)->next;
+
+		if (temp_first->n == 0)
+		{
+			free_stack(stack);
+			print_monty_error(DIV_BY_ZERO, 1, (int)line_number);
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			int result = temp_second->n / temp_first->n;
+
+			pop(stack, line_number);
+			(*stack)->n = result;
+		}
 	}
 }
 /**
