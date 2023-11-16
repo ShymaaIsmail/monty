@@ -15,7 +15,7 @@ int handle_push_param(char **line, unsigned int line_number)
 	if (line != NULL && line[1] != NULL)
 	{
 		value = string_to_integer(line[1]);
-		if (value == NULL || *line[1] == ' ' || *line[1] == '#'
+		if (value == NULL || *line[1] == ' '
 			|| *line[1] == '\0' || isspace(*line[1]))
 		{
 			print_monty_error(INVALID_INT, 1, (int)line_number);
@@ -75,7 +75,7 @@ int process_line(stack_t **stack, char **line, unsigned int line_number)
 			}
 			opcode_index++;
 		}
-		if (!is_handeled_opcode)
+		if (!is_handeled_opcode && *line[0] != '#')
 		{
 			print_monty_error(INVALID_OPCODE, 2, (int)line_number, opcode);
 			exit_code = EXIT_FAILURE;
