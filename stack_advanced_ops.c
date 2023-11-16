@@ -111,7 +111,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		{
 			char str[20];
 
-			sprintf(str, "%d\n", head_value);
+			sprintf(str, "%c\n", head_value);
 			write(STDOUT_FILENO, str, strlen(str));
 		}
 		else
