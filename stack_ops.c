@@ -59,7 +59,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		stack_t *top = get_top_node(*stack);
+		stack_t *top = *stack;
 		char str[20];
 
 		sprintf(str, "%d\n", top->n);
@@ -80,12 +80,12 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		stack_t *top = get_top_node(*stack);
-		*stack = top->next;
+		stack_t *head = *stack;
+		*stack = head->next;
 		if (*stack != NULL)
 		{
 			(*stack)->prev = NULL;
 		}
-		free(top);
+		free(head);
 	}
 }
