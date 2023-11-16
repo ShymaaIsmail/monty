@@ -54,9 +54,18 @@ void pall(stack_t **stack, unsigned int line_number)
 */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	if (stack != NULL)
+	if (*stack == NULL)
 	{
-		printf("%d", line_number);
+		print_monty_error(EMPTY_STACK, 1, (int)line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		stack_t *top = get_top_node(*stack);
+		char str[20];
+
+		sprintf(str, "%d\n", top->n);
+		write(STDOUT_FILENO, str, strlen(str));
 	}
 }
 /**

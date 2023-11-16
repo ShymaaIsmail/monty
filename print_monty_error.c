@@ -5,7 +5,8 @@ const MONTY_ERORR monty_errors[] = {
 	{FILE_NOT_OPEN, "Error: Can't open file %s\n"},
 	{MALLOC_FAIL, "Error: malloc failed\n"},
 	{INVALID_INT, "L%d: usage: push integer\n"},
-	{INVALID_OPCODE, "L%d: unknown instruction %s\n"}
+	{INVALID_OPCODE, "L%d: unknown instruction %s\n"},
+	{EMPTY_STACK, "L%d: can't pint, stack empty\n"}
 };
 
 
